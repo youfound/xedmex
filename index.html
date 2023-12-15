@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="/" />
+
+    <title>xedmex.site</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="144x144"
+      href="/assets/favicon/favicon-144x144.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta property="og:url" content="https://xedmex.site" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="xedmex.site - Automated AI Trading" />
+    <meta
+      property="og:description"
+      content="Introducing Xedmex Trader - the flawlessly engineered trading bot powered by artificial intelligence. Enroll now and start profiting today!"
+    />
+    <meta property="og:image" content="/banners/900x900.png" />
+    <meta name="twitter:title" content="xedmex.site" />
+    <meta
+      name="twitter:description"
+      content="Introducing Xedmex Trader - the flawlessly engineered trading bot powered by artificial intelligence. Enroll now and start profiting today!"
+    />
+    <meta name="twitter:image:src" content="/banners/900x900.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Scripts -->
+    <link rel="preload" as="style" href="/build/assets/app-81d0374b.css" />
+    <link rel="modulepreload" href="/build/assets/app-341a1e38.js" />
+    <link rel="stylesheet" href="/build/assets/app-81d0374b.css" />
+    <script type="module" src="/build/assets/app-341a1e38.js"></script>
+  </head>
+  <body
+    class="font-sans text-black antialiased min-h-screen overflow-x-hidden bg-gradient-to-b from-[#101315] via-[#1B2024] to-[#101315] pb-24 md:pb-0"
+    x-data
+  >
+    <div
+      class="w-full h-screen lg:h-[970px] front-bg-robot flex flex-col md:justify-between relative"
+    >
+      <div
+        class="hidden absolute top-0 left-0 right-0 bottom-0 md:flex items-center justify-center md:-z-20"
+      >
+        <video
+          class="object-cover h-full w-full"
+          autoplay
+          loop
+          muted
+          playsinline
+          poster="/assets/img/front/bg.jpeg"
+        >
+          <source src="/assets/video/front.mp4" type="video/webm" />
+        </video>
+      </div>
+      <div
+        class="hidden absolute top-0 left-0 right-0 bottom-0 md:flex items-center justify-center md:-z-10 bg-gradient-to-r from-black/80 to-black/10"
+      ></div>
+      <div
+        class="px-3 py-3 md:py-8 w-full lg:max-w-7xl mx-auto flex flex-row justify-between items-center relative text-white"
+      >
+        <div>
+          <a href="/"><img src="/assets/img/logo.png" class="h-[36px]" /></a>
+        </div>
+        <div class="flex flex-row gap-3">
+          <div
+            class="h-full flex flex-row gap-3 items-center"
+            x-data="{open: false}"
+          >
+            <div
+              id="front-nav-time"
+              class="md:hidden border-[1px] border-[#52514E] rounded-md items-center justify-between px-2 py-1 gap-2 w-[110px]"
+              style="
+                background-image: url('/assets/img/panel/stock-bg.png');
+                background-size: cover;
+                background-position: center;
+              "
+              x-data="currentTime()"
+              x-init="init()"
+            >
+              <span class="icon-globe"></span> <span x-text="getTime()"></span>
+            </div>
+            <ul
+              class="hidden md:flex flex-row gap-3 bg-[#151618]/20 px-4 py-4 rounded-full border-[1px] border-[#393939] font-semibold text-sm"
+            >
+              <li>
+                <a
+                  href="https://xedmex.site"
+                  class="border-[1px] px-4 py-2 rounded-full dark-blue-gradient border-[#393939] hover:dark-blue-gradient hover:border-[#393939]"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/#about"
+                  class="border-[1px] px-4 py-2 rounded-full border-transparent hover:dark-blue-gradient hover:border-[#393939]"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/#how-it-works"
+                  class="border-[1px] px-4 py-2 rounded-full border-transparent hover:dark-blue-gradient hover:border-[#393939]"
+                  >How it works?</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/#app"
+                  class="border-[1px] px-4 py-2 rounded-full border-transparent hover:dark-blue-gradient hover:border-[#393939]"
+                  >Apps</a
+                >
+              </li>
+              <li>
+                <a
+                  href="/news"
+                  class="border-[1px] px-4 py-2 rounded-full border-transparent hover:dark-blue-gradient hover:border-[#393939]"
+                  >News</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://t.me/Xedmex_official"
+                  target="_blank"
+                  class="border-[1px] px-4 py-2 rounded-full border-transparent hover:dark-blue-gradient hover:border-[#393939]"
+                  >Contact us</a
+                >
+              </li>
+            </ul>
+            <a
+              href="/login"
+              class="hidden md:flex flex-row items-center border-[1px] border-[#393939] gap-2 px-6 py-4 text-sm font-semibold rounded-full hover:dark-blue-gradient hover:border-[#393939]"
+            >
+              Log in
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2.5"
+                stroke="currentColor"
+                class="h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </a>
+            <button
+              x-on:click="$refs.mobilemenu.classList.remove('mobile-nav'); $refs.mobilemenu.classList.remove('hide-mobile-nav'); $refs.mobilemenu.classList.add('show-mobile-nav')"
+              class="inline-flex relative md:hidden border-[1px] border-[#52514E] hover:border-[#F8F8F8] p-2 rounded-md justify-center items-start text-[#F8F8F8]"
+            >
+              <span class="text-xs icon-hamburger"></span>
+            </button>
+            <div
+              x-ref="mobilemenu"
+              class="fixed z-40 top-0 left-0 w-screen h-screen mobile-nav overflow-y-scroll hidden-scrollbars"
+              style="
+                background-image: url('/assets/img/front/mobile-nav-bg.jpeg');
+                background-size: cover;
+                background-position: center;
+              "
+            >
+              <div class="relative">
+                <div class="mt-6 pl-8">
+                  <img src="/assets/img/logo.png" class="h-[36px]" />
+                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="absolute top-0 right-4 w-6 h-6"
+                  x-on:click="$refs.mobilemenu.classList.remove('show-mobile-nav'); $refs.mobilemenu.classList.add('hide-mobile-nav')"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+                <div class="front-separator mx-8 my-8"></div>
+                <div class="flex flex-row flex-wrap gap-3 justify-center">
+                  <a
+                    href="/register"
+                    class="inline-flex justify-between items-center pl-5 rounded-full bg-gradient-to-r from-[#038DFD] to-[#5E0AB1] hover:from-[#5E0AB1] hover:to-[#038DFD] w-[40vw] font-bold"
+                  >
+                    Register
+                    <span
+                      class="flex rounded-full bg-white text-[#5337C9] w-8 h-8 justify-center items-center m-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="3.5"
+                        stroke="currentColor"
+                        class="w-6 h-4"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                  <a
+                    href="/login"
+                    class="inline-flex dark-blue-border-gradient justify-between items-center pl-5 font-bold h-full w-[40vw]"
+                  >
+                    Login
+                    <span
+                      class="flex rounded-full bg-transparent text-white w-8 h-8 justify-center items-center m-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="3.5"
+                        stroke="currentColor"
+                        class="w-6 h-4"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                        />
+                      </svg>
+                    </span>
+                  </a>
+                </div>
+                <div class="py-3 px-8">
+                  <ul class="space-y-3 px-6 mt-4">
+                    <li>
+                      <a
+                        href="https://xedmex.site"
+                        class="mt-2 rounded-md border-[1px] border-[#ADFF00] px-3 py-1 w-full flex justify-center items-center"
+                      >
+                        Home
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/news"
+                        class="mt-2 rounded-md px-3 py-1 w-full flex justify-center items-center"
+                      >
+                        News &amp; Blog
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://t.me/Xedmex_official"
+                        target="_blank"
+                        class="mt-2 rounded-md px-3 py-1 w-full flex justify-center items-center"
+                      >
+                        Contact us
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/files/xedmex-guidebook.pdf"
+                        download
+                        class="mt-2 rounded-md px-3 py-1 w-full flex justify-center items-center"
+                      >
+                        Guidebook
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/files/xedmex-whitepaper.pdf"
+                        download
+                        class="mt-2 rounded-md px-3 py-1 w-full flex justify-center items-center"
+                      >
+                        White Paper
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  class="flex flex-row gap-3 justify-center w-full md:w-auto my-4"
+                >
+                  <a href="https://t.me/Xedmex_official" target="_blank">
+                    <img
+                      src="/assets/img/front/trade-anytime/telegram.png"
+                      class="h-8"
+                    />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/company/xedmex/"
+                    target="_blank"
+                  >
+                    <img
+                      src="/assets/img/front/trade-anytime/linkedin.png"
+                      class="h-8"
+                    />
+                  </a>
+                  <a href="https://medium.com/@xedmex" target="_blank">
+                    <img
+                      src="/assets/img/front/trade-anytime/medium.png"
+                      class="h-8"
+                    />
+                  </a>
+                  <a href="https://x.com/xedmex" target="_blank">
+                    <img
+                      src="/assets/img/front/trade-anytime/x.png"
+                      class="h-8"
+                    />
+                  </a>
+                  <a href="https://discord.gg/aby26e5des" target="_blank">
+                    <img
+                      src="/assets/img/front/trade-anytime/discord.png"
+                      class="h-8"
+                    />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@Xedmex-AI-Trader"
+                    target="_blank"
+                  >
+                    <img
+                      src="/assets/img/front/trade-anytime/youtube.png"
+                      class="h-8"
+                    />
+                  </a>
+                </div>
+                <div class="front-separator mx-8 my-8"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="px-3 pt-3 md:pt-8 pb-6 md:pb-0 w-full lg:max-w-7xl mx-auto flex flex-col relative text-white h-full"
+      >
+        <div class="flex md:hidden justify-center pb-8 pt-[1.3vh]">
+          <img src="/assets/img/front/silver-x.png" class="w-[40%]" />
+        </div>
+        <div class="flex flex-col lg:max-w-[50%] h-full justify-between">
+          <h1
+            class="uppercase text-4xl lg:text-6xl font-extrabold text-center md:text-left md:mt-12"
+          >
+            Evolution is <br /><span class="text-[#ADF515]">revolution.</span>
+          </h1>
+          <h2
+            class="py-6 md:py-8 text-center md:text-left mx-10 md:mx-0 md:text-xl"
+          >
+            Introducing Xedmex AI Trader - the flawlessly engineered trading
+            brain powered by artificial intelligence. Join now and start
+            profiting today!
+          </h2>
+          <div
+            class="flex flex-row flex-wrap gap-3 justify-center md:justify-start mb-[40%] md:mb-12"
+          >
+            <a
+              href="/register"
+              class="inline-flex justify-between items-center pl-8 rounded-full bg-gradient-to-r from-[#038DFD] to-[#5E0AB1] hover:from-[#5E0AB1] hover:to-[#038DFD] w-3/4 md:w-[220px] font-bold text-xl"
+            >
+              Register
+              <span
+                class="flex rounded-full bg-white text-[#5337C9] w-10 h-10 justify-center items-center m-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="3.5"
+                  stroke="currentColor"
+                  class="w-6 h-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </a>
+            <a
+              href="/login"
+              class="inline-flex dark-blue-border-gradient justify-between items-center pl-8 font-bold text-xl h-[50px] md:h-full w-3/4 md:w-[220px]"
+            >
+              Login
+              <span
+                class="flex rounded-full bg-transparent text-white w-10 h-10 justify-center items-center m-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="3.5"
+                  stroke="currentColor"
+                  class="w-6 h-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+          <div class="hidden md:grid grid-cols-2 gap-x-4 gap-y-6 my-3 md:my-12">
+            <div>
+              <h3 class="font-bold text-2xl md:text-4xl">Millions</h3>
+              <p>Of Pre-Trained Transactions</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl md:text-4xl">Thousands</h3>
+              <p>Training Sources &amp; Databases</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl md:text-4xl">Hundreds</h3>
+              <p>Of Companies&#039; Stocks in Trading</p>
+            </div>
+            <div>
+              <h3 class="font-bold text-2xl md:text-4xl">One</h3>
+              <p>Digital Brain to Rule Them All</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="hidden px-3 py-3 md:py-8 w-full lg:max-w-7xl mx-auto md:flex flex-row items-center relative text-white"
+      >
+        <div class="lg:max-w-[70%] text-xs">
+          Operating during NYSE hours (9:30 - 16:00 ET), Xedmex Trading Bot has
+          never ended a day with negative profits. Trading involves risks, and
+          values can fluctuate. Past performance doesn’t guarantee future
+          outcomes. Assess your risk tolerance and goals before trading.
+          Understand the risks and, if necessary, consult a financial advisor.
+          Information here is for education and not financial advice. Invest
+          thoughtfully after research. By registering on the website, you accept
+          its
+          <a href="/terms" class="underline">Terms & Conditions</a>.
+        </div>
+      </div>
+    </div>
+    <div class="border-t-[4px] border-frontGreen" id="about" x-data>
+      <div>
+        <div
+          class="px-3 py-3 md:py-8 w-full lg:max-w-7xl mx-auto flex flex-col items-center relative text-white"
+          style="
+            background-image: url('/assets/img/front/about/x.png');
+            background-size: 80%;
+            background-repeat: no-repeat;
+            background-position: center 50px;
+          "
+        >
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-24">
+            <div>
+              <h3
+                class="font-medium text-4xl lg:text-5xl mb-3 md:mb-8 tracking-tight text-center md:text-left"
+              >
+                About
+                <span class="text-frontGreen font-extrabold">Xedmex</span> AI
+                Trader
+              </h3>
+              <p
+                class="leading-tight mb-3 md:mb-6"
+                x-intersect="$el.classList.add('scale')"
+              >
+                Xedmex AI Trader represents a groundbreaking achievement in the
+                realm of day trading. We have harnessed the power of
+                cutting-edge technology, utilizing a bespoke Generative
+                Pre-trained Transformer (GPT) model, fine-tuned on an extensive
+                dataset of over 250,000 trading-related database records,
+                including trading websites, past trades, market behaviour,
+                trading strategies and more. The goal? To craft the ultimate day
+                trading digital brain.
+              </p>
+              <p class="leading-tight" x-intersect="$el.classList.add('scale')">
+                The outcome has been nothing short of remarkable. Since launch
+                in 2023, the AI-crafted bot has achieved a remarkable feat by
+                consistently delivering profitability every single day. This
+                extraordinary success stands as a testament to the immense
+                potential of Artificial Intelligence in the world of finance.
+                Now we are extending the opportunity to all interested investors
+                to benefit from this exceptional AI-driven trading digital
+                brain.
+              </p>
+            </div>
+            <div>
+              <img
+                src="/assets/img/front/about/phones-about.png"
+                x-intersect="$el.classList.add('show-from-right')"
+              />
+            </div>
+          </div>
+          <div class="front-separator my-4 md:my-8 w-3/4"></div>
+          <h3
+            class="font-medium text-4xl lg:text-5xl mb-3 md:mb-8 tracking-tight text-center"
+          >
+            Friendly Platform,
+            <span class="text-frontGreen font-extrabold"
+              >Serious Investors</span
+            >
+          </h3>
+          <div
+            class="grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-8 lg:px-32 lg:mt-6"
+          >
+            <div
+              class="flex flex-col gap-3 lg:gap-4"
+              x-intersect="$el.classList.add('scale')"
+            >
+              <img src="/assets/img/front/about/evolution.png" />
+              <h5 class="font-bold text-xl">Evolution is Revolution</h5>
+              <p class="text-sm">
+                Discover the Next Evolution in Trading with Xedmex AI, a
+                visionary leader in the financial software realm. Our original
+                solution, Xedmex AI Trader, redefines the landscape of trading
+                bots by seamlessly combining the brilliance of our proprietary
+                GPT (Generative Pre-trained Transformer) model with the insights
+                of expert traders.
+              </p>
+            </div>
+            <div
+              class="flex flex-col gap-3 lg:gap-4"
+              x-intersect="$el.classList.add('scale')"
+            >
+              <img src="/assets/img/front/about/trading.png" />
+              <h5 class="font-bold text-xl">Virtual Trading, risk free</h5>
+              <p class="text-sm">
+                Only Xedmex offers you a unique virtual portfolio, where you can
+                play around with $100K (in virtual money) to explore, learn, and
+                check our bot skills — before investing a single (real) cent.
+                Try it completely risk-free today and experience the power of
+                our digital brain.
+              </p>
+            </div>
+            <div
+              class="flex flex-col gap-3 lg:gap-4"
+              x-intersect="$el.classList.add('scale')"
+            >
+              <img src="/assets/img/front/about/portfolio.png" />
+              <h5 class="font-bold text-xl">Grow Your Portfolio</h5>
+              <p class="text-sm">
+                Join thousands of traders and become an active participant in
+                the financial markets and trade the NYSE 100 index effortlessly.
+                Explore countless opportunities - you don&#039;t need any past
+                experience. Entrust your investments to Xedmex AI Trading bot,
+                and watch your portfolio flourish. Start your journey with us
+                today!
+              </p>
+            </div>
+          </div>
+          <div class="front-separator my-8 w-3/4"></div>
+          <div class="relative flex flex-col items-center w-full">
+            <div class="hidden lg:block absolute left-[-150px] -z-10">
+              <img
+                src="/assets/img/front/about/phone-left.png"
+                class="h-[550px]"
+                x-intersect="$el.classList.add('scale')"
+              />
+            </div>
+            <div class="hidden lg:block absolute right-[-150px] -z-10">
+              <img
+                src="/assets/img/front/about/phone-right.png"
+                class="h-[450px]"
+                x-intersect="$el.classList.add('scale')"
+              />
+            </div>
+            <h3
+              class="font-medium text-4xl lg:text-5xl mb-3 md:mb-8 tracking-tight text-center"
+              id="how-it-works"
+            >
+              <span class="text-frontGreen font-extrabold">Results</span> That
+              Speak Volumes
+            </h3>
+            <div class="mas-w-[620px] flex flex-col items-center">
+              <div class="max-w-[550px] space-y-3">
+                <p class="text-center">
+                  Our exclusive trading bot has consistently demonstrated
+                  outstanding performance ever since its inception. What follows
+                  below are the most recent results from the past few days,
+                  allowing you to witness firsthand the remarkable potential of
+                  our state-of-the-art technology and its capacity to yield
+                  tangible results.
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-1 lg:grid-cols-2 mt-3 md:mt-8 gap-3 lg:max-w-[680px]"
+              >
+                <div
+                  class="flex flex-col rounded-xl border-[1px] border-[#52514E] overflow-hidden"
+                  style="
+                    background-image: url('/assets/img/front/front-single-trade-bg-1.png');
+                    background-size: cover;
+                    background-position: center;
+                  "
+                >
+                  <div
+                    class="bg-[#19181F] px-2 py-3 flex flex-row gap-3 justify-between"
+                  >
+                    <div class="flex flex-col">
+                      <div class="flex flex-row gap-2">
+                        <div class="flex justify-center items-center">
+                          <img
+                            src="/assets/img/stock/AAPL.svg"
+                            class="rounded-full border-[1px] border-[#6F6F6F] h-8 aspect-square"
+                          />
+                        </div>
+                        <div
+                          class="flex flex-col justify-center text-[#8C8C8C] text-sm leading-3 whitespace-nowrap"
+                        >
+                          <span class="font-semibold text-xl text-white"
+                            >AAPL</span
+                          >Apple, Inc.
+                        </div>
+                      </div>
+                      <div
+                        class="text-4xl font-semibold text-[#70FF64] pt-2 pl-1"
+                      >
+                        +0.91%
+                      </div>
+                    </div>
+                    <div class="flex justify-end items-center">
+                      <img
+                        src="/assets/img/front/chart-up.png"
+                        class="w-[75%]"
+                      />
+                    </div>
+                  </div>
+                  <div class="p-3 grid grid-cols-2 gap-3 my-2">
+                    <div>
+                      <div class="text-[#DCDCDC] text-center">Buy Price</div>
+                      <div class="text-2xl text-center">$175.21</div>
+                    </div>
+                    <div>
+                      <div class="text-[#DCDCDC] text-center">Buy Time</div>
+                      <div class="text-2xl text-center">09:38</div>
+                    </div>
+                    <div>
+                      <div class="text-[#DCDCDC] text-center">Sell Price</div>
+                      <div class="text-2xl text-center">$176.81</div>
+                    </div>
+                    <div>
+                      <div class="text-[#DCDCDC] text-center">Sell Time</div>
+                      <div class="text-2xl text-center">15:21</div>
+                    </div>
+                    <div>
+                      <div class="text-[#DCDCDC] text-center">Spread Value</div>
+                      <div class="text-2xl text-center">$1.61</div>
+                    </div>
+                    <div>
+                      <div class="text-[#DCDCDC] text-center">Spread (%)</div>
+                      <div class="text-2xl text-center">
+                        <span class="text-[#70FF64]">+0.91%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-col gap-3">
+                  <div
+                    class="flex py-2 px-3 flex-row justify-between rounded-lg border-[1px] border-[#535353]"
+                    style="
+                      background-image: url('/assets/img/front/front-day-trade-bg.jpeg');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div class="flex flex-col">
+                      <div class="font-extrabold text-sm">12.14.2023</div>
+                      <div class="text-[#70FF64] text-3xl">+1.65%</div>
+                    </div>
+                    <div class="flex flex-col">
+                      <div
+                        class="font-bold text-right flex flex-row items-center justify-end gap-1"
+                      >
+                        <a
+                          href="/trades/bb8ffecc-630a-4ca5-8c25-f793a3af56cb"
+                          class="group"
+                          ><span class="hover:underline">Details</span>
+                          <img
+                            src="/assets/img/front/arrow-right.svg"
+                            class="inline h-[12px]"
+                        /></a>
+                      </div>
+                      <div class="flex flex-row gap-1 pt-1">
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/AMZN.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/INTU.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/GOOGL.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square flex justify-center items-center font-bold"
+                        >
+                          +2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex py-2 px-3 flex-row justify-between rounded-lg border-[1px] border-[#535353]"
+                    style="
+                      background-image: url('/assets/img/front/front-day-trade-bg.jpeg');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div class="flex flex-col">
+                      <div class="font-extrabold text-sm">12.13.2023</div>
+                      <div class="text-[#70FF64] text-3xl">+1.65%</div>
+                    </div>
+                    <div class="flex flex-col">
+                      <div
+                        class="font-bold text-right flex flex-row items-center justify-end gap-1"
+                      >
+                        <a
+                          href="/trades/34669ab2-fcf5-4d94-962a-87a7ccbc7c9f"
+                          class="group"
+                          ><span class="hover:underline">Details</span>
+                          <img
+                            src="/assets/img/front/arrow-right.svg"
+                            class="inline h-[12px]"
+                        /></a>
+                      </div>
+                      <div class="flex flex-row gap-1 pt-1">
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/GOOG.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/AMZN.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/GOOGL.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square flex justify-center items-center font-bold"
+                        >
+                          +2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex py-2 px-3 flex-row justify-between rounded-lg border-[1px] border-[#535353]"
+                    style="
+                      background-image: url('/assets/img/front/front-day-trade-bg.jpeg');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div class="flex flex-col">
+                      <div class="font-extrabold text-sm">12.12.2023</div>
+                      <div class="text-[#70FF64] text-3xl">+1.34%</div>
+                    </div>
+                    <div class="flex flex-col">
+                      <div
+                        class="font-bold text-right flex flex-row items-center justify-end gap-1"
+                      >
+                        <a
+                          href="/trades/64984fee-a257-4843-900e-4d860497a9c6"
+                          class="group"
+                          ><span class="hover:underline">Details</span>
+                          <img
+                            src="/assets/img/front/arrow-right.svg"
+                            class="inline h-[12px]"
+                        /></a>
+                      </div>
+                      <div class="flex flex-row gap-1 pt-1">
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/COST.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/HON.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/TXN.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square flex justify-center items-center font-bold"
+                        >
+                          +2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex py-2 px-3 flex-row justify-between rounded-lg border-[1px] border-[#535353]"
+                    style="
+                      background-image: url('/assets/img/front/front-day-trade-bg.jpeg');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div class="flex flex-col">
+                      <div class="font-extrabold text-sm">12.11.2023</div>
+                      <div class="text-[#70FF64] text-3xl">+1.24%</div>
+                    </div>
+                    <div class="flex flex-col">
+                      <div
+                        class="font-bold text-right flex flex-row items-center justify-end gap-1"
+                      >
+                        <a
+                          href="/trades/e2e9ee08-19c8-46d4-9ad0-6e24fa13aa88"
+                          class="group"
+                          ><span class="hover:underline">Details</span>
+                          <img
+                            src="/assets/img/front/arrow-right.svg"
+                            class="inline h-[12px]"
+                        /></a>
+                      </div>
+                      <div class="flex flex-row gap-1 pt-1">
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/NFLX.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/TMUS.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square"
+                        >
+                          <img src="/assets/img/stock/AMGN.svg" />
+                        </div>
+                        <div
+                          class="rounded-full overflow-hidden h-8 aspect-square flex justify-center items-center font-bold"
+                        >
+                          +1
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="px-2 text-[#A7A7A7] text-sm">
+                    <span class="text-[#70FF64]">*</span>The results displayed
+                    in this visual are real-time data, capturing the performance
+                    over the last four trading days.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="front-separator my-8 w-3/4"></div>
+          <h3
+            class="font-medium text-4xl lg:text-5xl mb-3 md:mb-8 tracking-tight text-center"
+          >
+            Start Trading in
+            <span class="text-frontGreen font-extrabold">Easy Steps</span>
+          </h3>
+          <div
+            class="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-8 lg:px-32 lg:pt-8 mb-6"
+          >
+            <div class="flex flex-col items-center gap-3">
+              <img
+                src="/assets/img/front/about/open-account.png"
+                class="h-[55px] lg:h-[95px]"
+              />
+              <h5 class="text-center text-xl font-semibold">1. Open Account</h5>
+              <p class="text-sm text-center">
+                Register an account, provide required verification details to
+                start using our trading bot.
+              </p>
+            </div>
+            <div class="flex flex-col items-center gap-3">
+              <img
+                src="/assets/img/front/about/top-up.png"
+                class="h-[55px] lg:h-[95px]"
+              />
+              <h5 class="text-center text-xl font-semibold">2. Top up Bot</h5>
+              <p class="text-sm text-center">
+                Fund your account with chosen currency. The funding amount will
+                be used by the Bot for trading in your behalf.
+              </p>
+            </div>
+            <div class="flex flex-col items-center gap-3">
+              <img
+                src="/assets/img/front/about/earn-daily.png"
+                class="h-[55px] lg:h-[95px]"
+              />
+              <h5 class="text-center text-xl font-semibold">3. Top up Bot</h5>
+              <p class="text-sm text-center">
+                The bot will employ staked funds to execute trades and generate
+                earnings, which will be allocated to you daily.
+              </p>
+            </div>
+            <div class="flex flex-col items-center gap-3">
+              <img
+                src="/assets/img/front/about/track-trades.png"
+                class="h-[55px] lg:h-[95px]"
+              />
+              <h5 class="text-center text-xl font-semibold">4. Track Trades</h5>
+              <p class="text-sm text-center">
+                Oversee all bot&#039;s transactions and track it&#039;s
+                performance with easy dashboard and daily reports.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="border-t-[4px] border-frontGreen"
+      x-data
+      style="
+        background-image: url('/assets/img/front/latest-news/bg.png');
+        background-size: cover;
+        background-position: top center;
+      "
+    >
+      <div class="pb-3 lg:pb-6 lg:mt-3">
+        <div
+          class="px-3 py-3 md:py-8 w-full lg:max-w-7xl mx-auto flex flex-col items-center relative text-white"
+        >
+          <h3
+            class="font-medium text-4xl lg:text-5xl mb-3 md:mb-8 tracking-tight w-full"
+          >
+            Lastest <span class="text-frontGreen font-extrabold">News</span>
+          </h3>
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
+            <div class="hidden lg:block">
+              <img
+                src="/assets/img/front/latest-news/phone.png"
+                class="max-h-[500px]"
+                x-intersect="$el.classList.add('show-from-left')"
+              />
+            </div>
+            <div class="flex items-center">
+              <article class="flex flex-col w-full">
+                <div class="text-sm text-[#FFB904]">10.25.2023</div>
+                <h5
+                  class="pb-3 lg:pb-0 lg:h-14 font-semibold text-lg leading-tight"
+                  style="
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  Xedmex AI: Mobile Apps Launch Announcement
+                </h5>
+                <a
+                  href="/news/xedmex-ai-mobile-apps-launch-announcement"
+                  title="Xedmex AI: Mobile Apps Launch Announcement"
+                  class="w-full h-[140px] lg:h-[180px] rounded-md border-[1px] border-[#DFA917]"
+                  style="
+                    background-image: url('/storage/news/0XT9VmgDR5XlKbtCITPDcIQxmygKtcUbuqPTn8Dt.png');
+                    background-size: cover;
+                    background-position: center;
+                  "
+                ></a>
+                <p
+                  class="text-sm mt-3"
+                  style="
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  At Xedmex we're working hard, and we want to give you a sneak
+                  peek into what's coming up - the Mobile Apps!<br />
+                  <br />
+                  Launch Date: Q1 2024<br />
+                  <br />
+                  Mobile apps for both Google Play and Apple App Store are well
+                  underway and are set to launch in the first quarter of
+                  2024.<br />
+                  <br />
+                  What you can expect:<br />
+                  <br />
+                  1. Impeccable Quality: We're committed to delivering a smooth
+                  experience for our users. Our development team is rigorously
+                  testing and refining the apps UX to set the highest
+                  standards.<br />
+                  <br />
+                  2. User-Centric Features: We listen to our community feedback
+                  and are incorporating some cutting-edge new features to
+                  enhance you trading experience with Xedmex. It's all about
+                  making trading even easier and more enjoyable.<br />
+                  <br />
+                  3. Cross-Platform Compatibility: Developing for both Android
+                  and iOS is a complex task, but it's worth it. We want to make
+                  sure everyone can enjoy our apps, no matter what device they
+                  use.<br />
+                  <br />
+                  4. Security and Privacy: We're taking data protection
+                  seriously. Our team is implementing state-of-the-art security
+                  measures to keep your funds and personal information safe -
+                  always.<br />
+                  <br />
+                  5. Instant Access: Our app will be launched as the ultimate,
+                  fully-refined product. No demos, trials or promises, but 100%
+                  ready to go product on both platforms - Apple Store and Google
+                  Play. Thanks to our dedicated dev team and selected users who
+                  will be testing the app during development time, you can
+                  expect nothing but the best right from the start!<br />
+                  <br />
+                  Stay tuned for more updates as we get closer to the launch
+                  date!
+                </p>
+                <div class="pt-3">
+                  <a
+                    href="/news/xedmex-ai-mobile-apps-launch-announcement"
+                    title="Xedmex AI: Mobile Apps Launch Announcement"
+                    class="border-2 border-frontGreen hover:bg-frontGreen hover:text-black rounded-sm px-4 py-1 inline-flex text-sm"
+                    >Read more</a
+                  >
+                </div>
+              </article>
+            </div>
+            <div class="flex items-center">
+              <article class="flex flex-col w-full">
+                <div class="text-sm text-[#FFB904]">09.12.2023</div>
+                <h5
+                  class="pb-3 lg:pb-0 lg:h-14 font-semibold text-lg leading-tight"
+                  style="
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  Xedmex AI new feature: Virtual Trading!
+                </h5>
+                <a
+                  href="/news/xedmex-ai-new-feature-virtual-trading"
+                  title="Xedmex AI new feature: Virtual Trading!"
+                  class="w-full h-[140px] lg:h-[180px] rounded-md border-[1px] border-[#DFA917]"
+                  style="
+                    background-image: url('/storage/news/DCf6KK4h5B9AXnGNSDyBqg2HeE6KHQ0nMHQUPfrP.png');
+                    background-size: cover;
+                    background-position: center;
+                  "
+                ></a>
+                <p
+                  class="text-sm mt-3"
+                  style="
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  We are excited to introduce you to our Virtual Trading
+                  feature, designed to help you familiarize yourself with our
+                  platform before diving into real trading with your own
+                  capital.<br />
+                  <br />
+                  What is Virtual Trading?<br />
+                  <br />
+                  Virtual Trading allows you to simulate real trading
+                  experiences on Xedmex without risking your actual capital.
+                  It's a risk-free way to explore and understand how our Xedmex
+                  AI Trader works and evaluate the performance of our trading
+                  bot, all while using virtual currency.<br />
+                  <br />
+                  Getting Started<br />
+                  <br />
+                  When you open an account with Xedmex, you automatically
+                  receive 100,000 Virtual Dollars (vUSD). Each vUSD is
+                  equivalent to one US dollar, so you start with a substantial
+                  amount to experiment with.<br />
+                  <br />
+                  How to Use Virtual Trading<br />
+                  <br />
+                  Navigate to the Virtual Trading Section: Log in to your Xedmex
+                  AI account, and you'll find the Virtual Trading button in your
+                  dashboard.<br />
+                  <br />
+                  Create Virtual Deposits: You can use your vUSD to create
+                  virtual deposits. These virtual deposits will mimic real
+                  deposits and work with our trading bot in the same way, as
+                  real capital deposits.<br />
+                  <br />
+                  Experiment and Test: Once you've set up your virtual deposits,
+                  you can cbserve, how the bot performs under various market
+                  conditions without any own financial risk.<br />
+                  <br />
+                  Evaluate Performance: Monitor and analyze the results of
+                  virtual trades made on your behalf. You can assess the
+                  performance of the bot, understand how it responds to
+                  different market trends, and decide about your trading
+                  approach.<br />
+                  <br />
+                  No Financial Risk: Remember that all trading in the Virtual
+                  Trading mode is entirely risk-free. Xedmex Virtual Dollars are
+                  completely free to use and let you check automated trading
+                  rules.<br />
+                  <br />
+                  Ready to Get Started?<br />
+                  <br />
+                  Log in to your Xedmex account today and explore the Virtual
+                  Trading feature. It's your risk-free gateway to becoming a
+                  confident and successful trader with Xedmex AI, before you get
+                  started with real capital. <br />
+                  <br />
+                  Please note that all vUSD used in Virtual Trading has no
+                  value, is purely virtual and cannot be converted into real
+                  funds or withdrawn. Virtual Trading is designed for
+                  educational and testing purposes only. <br />
+                  <br />
+                  Become Real Trader <br />
+                  <br />
+                  When you decide to invest real funds, the Virtual Trading
+                  mode, including all vUSD and their trading history, will be
+                  permanently removed just after you make your own first
+                  deposit. This moment will mark the beginning of your real
+                  trading journey with Xedmex AI Trader!
+                </p>
+                <div class="pt-3">
+                  <a
+                    href="/news/xedmex-ai-new-feature-virtual-trading"
+                    title="Xedmex AI new feature: Virtual Trading!"
+                    class="border-2 border-frontGreen hover:bg-frontGreen hover:text-black rounded-sm px-4 py-1 inline-flex text-sm"
+                    >Read more</a
+                  >
+                </div>
+              </article>
+            </div>
+            <div class="flex items-center">
+              <article class="flex flex-col w-full">
+                <div class="text-sm text-[#FFB904]">09.07.2023</div>
+                <h5
+                  class="pb-3 lg:pb-0 lg:h-14 font-semibold text-lg leading-tight"
+                  style="
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  Apple Inc: Anticipated Impact on Stocks and Trading Trends
+                </h5>
+                <a
+                  href="/news/apple-inc-anticipated-impact-on-stocks-and-trading-trends"
+                  title="Apple Inc: Anticipated Impact on Stocks and Trading Trends"
+                  class="w-full h-[140px] lg:h-[180px] rounded-md border-[1px] border-[#DFA917]"
+                  style="
+                    background-image: url('/storage/news/yNYnuhkg1Ar8wgAhUYDZ9cLO5R6UtOw52SdfjGy8.png');
+                    background-size: cover;
+                    background-position: center;
+                  "
+                ></a>
+                <p
+                  class="text-sm mt-3"
+                  style="
+                    overflow: hidden;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                  "
+                >
+                  In the ever-evolving world of technology, Apple Inc. has
+                  remained a pioneer and a trendsetter. The anticipation for
+                  each new iPhone release is akin to a cultural phenomenon, and
+                  this year is no different. Apple enthusiasts and investors
+                  worldwide are eagerly awaiting the launch of the iPhone 15,
+                  poised to take the market by storm. With this upcoming
+                  release, Apple's stocks are expected to make waves in the
+                  trading world, creating an exciting opportunity for
+                  investors.<br />
+                  <br />
+                  The iPhone Legacy<br />
+                  <br />
+                  The iPhone has become synonymous with innovation and
+                  excellence in the smartphone industry. With each new
+                  iteration, Apple raises the bar, introducing cutting-edge
+                  technology and features that captivate consumers. The iPhone
+                  15 promises to be no exception, rumored to offer revolutionary
+                  advancements in camera technology, processing power, and
+                  connectivity.<br />
+                  <br />
+                  The Impact on Apple Stocks<br />
+                  <br />
+                  Historically, every iPhone release has had a notable effect on
+                  Apple's stock performance. The surge in demand, coupled with
+                  the excitement generated among consumers, often leads to an
+                  increase in Apple's stock value. Investors keenly observe
+                  these patterns, recognizing the potential for profitable
+                  trading opportunities.<br />
+                  <br />
+                  As we approach the launch of the iPhone 15, analysts and
+                  experts predict a similar trajectory. The heightened consumer
+                  interest and expected strong sales figures are likely to
+                  bolster Apple's stock trading volume. Consequently, traders
+                  and investors are expected to flock to Apple stocks in
+                  anticipation of potential gains.<br />
+                  <br />
+                  Maximizing the Opportunity<br />
+                  <br />
+                  Recognizing the significance of this event, Xedmex AI Trader,
+                  our AI-powered trading bot, will be placing a particular focus
+                  a more on Apple stocks over the next two months (IP15 release
+                  + sale start). The sophisticated algorithms and data-driven
+                  strategies, that power Xedmex AI Trader, are designed to seize
+                  opportunities when market conditions are favorable. The iPhone
+                  15 release is undoubtedly one such opportunity.<br />
+                  <br />
+                  Our team at Xedmex AI Trader believes that staying ahead of
+                  market trends and events is crucial for successful trading.
+                  With the iPhone 15 launch on the horizon, we aim to leverage
+                  this momentous event to optimize trading strategies and
+                  generate favorable outcomes for our users.<br />
+                  <br />
+                  In Conclusion<br />
+                  <br />
+                  As Apple enthusiasts eagerly await the iPhone 15, investors
+                  and traders have their sights set on the potential market
+                  impact. The historical precedent set by previous iPhone
+                  releases suggests that Apple's stocks are in for an exciting
+                  stock trading volume ride. With Xedmex AI Trader's commitment
+                  to providing cutting-edge trading solutions, users can rest
+                  assured that their investments are in capable hands.<br />
+                  <br />
+                  In the dynamic world of trading, seizing the right
+                  opportunities at the right time is paramount. The iPhone 15
+                  release is just one of those opportunities, and Xedmex AI
+                  Trader is dedicated to helping our users make the most of it.
+                  Stay tuned for an exciting journey into the world of Apple
+                  stocks, and let Xedmex AI Trader guide you towards trading
+                  success.
+                </p>
+                <div class="pt-3">
+                  <a
+                    href="/news/apple-inc-anticipated-impact-on-stocks-and-trading-trends"
+                    title="Apple Inc: Anticipated Impact on Stocks and Trading Trends"
+                    class="border-2 border-frontGreen hover:bg-frontGreen hover:text-black rounded-sm px-4 py-1 inline-flex text-sm"
+                    >Read more</a
+                  >
+                </div>
+              </article>
+            </div>
+            <a
+              href="/news"
+              class="flex justify-end lg:inline-flex text-xl hover:text-primary underline gap-1 items-center lg:absolute lg:right-0 lg:bottom-0 text-right"
+              >Go to all news
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t-[4px] border-frontGreen" id="app">
+      <div>
+        <div
+          class="px-3 py-3 md:py-8 w-full lg:max-w-7xl mx-auto flex flex-col items-center relative text-white"
+        >
+          <h3
+            class="font-medium text-4xl lg:text-5xl mb-3 md:mb-8 tracking-tight text-center"
+          >
+            Trade anytime with
+            <span class="text-frontGreen font-extrabold">Xedmex App</span>
+          </h3>
+          <div class="grid grid-cols-1 lg:grid-cols-[1fr_380px_1fr] gap-3">
+            <div class="flex justify-center">
+              <div
+                class="inline-grid grid-cols-2 gap-3 lg:gap-6 w-3/4 lg:w-auto"
+              >
+                <div class="relative">
+                  <img
+                    class="hidden lg:block absolute -z-10 top-[-50px] left-[-50px] h-[250px]"
+                    src="/assets/img/front/trade-anytime/radial.png"
+                  />
+                  <img
+                    src="/assets/img/front/trade-anytime/u-1.png"
+                    class="lg:h-[140px] aspect-square"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="/assets/img/front/trade-anytime/u-2.png"
+                    class="lg:h-[140px] aspect-square"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="/assets/img/front/trade-anytime/u-3.png"
+                    class="lg:h-[140px] aspect-square"
+                  />
+                </div>
+                <div>
+                  <img
+                    src="/assets/img/front/trade-anytime/u-4.png"
+                    class="lg:h-[140px] aspect-square"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="space-y-3 text-center">
+              <p class="">
+                Trading has never been simpler. The Xedmex App is your gateway
+                to effortless trading.
+              </p>
+              <p class="">
+                Our fully native app brings real-time market data, customizable
+                bots, and stock trading to your device. Trade smarter and more
+                efficiently with our new mobile app. Get ready for a streamlined
+                trading experience.
+              </p>
+              <div>
+                <div class="text-center font-extrabold text-frontGreen text-lg">
+                  Soon on:
+                </div>
+                <div class="grid grid-cols-[auto_auto] mt-2 lg:mt-3">
+                  <div>
+                    <img src="/assets/img/front/trade-anytime/app-store.png" />
+                  </div>
+                  <div>
+                    <img
+                      src="/assets/img/front/trade-anytime/google-play.png"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-center lg:justify-end">
+              <img
+                src="/assets/img/front/trade-anytime/phone-1.png"
+                class="w-[80%]"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row justify-between gap-4 w-full">
+            <div class="flex flex-col max-w-[480px] gap-3">
+              <h4 class="text-2xl font-bold mt-3">
+                Revolutionize Your Trading.
+              </h4>
+              <p class="">
+                Embark on a trading journey powered by our state-of-the-art
+                AI-driven day trading bot. No prior experience required! Start
+                automating your trading today.
+              </p>
+              <div class="flex flex-col items-center md:flex-row gap-3 mt-3">
+                <a
+                  href="/register"
+                  class="inline-flex justify-between items-center pl-8 rounded-full bg-gradient-to-r from-[#038DFD] to-[#5E0AB1] hover:from-[#5E0AB1] hover:to-[#038DFD] w-3/4 md:w-[220px] font-bold text-xl"
+                >
+                  Register
+                  <span
+                    class="flex rounded-full bg-white text-[#5337C9] w-10 h-10 justify-center items-center m-1"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="3.5"
+                      stroke="currentColor"
+                      class="w-6 h-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                  </span>
+                </a>
+                <a
+                  href="/login"
+                  class="inline-flex dark-blue-border-gradient justify-between items-center pl-8 font-bold text-xl h-full w-3/4 md:w-[220px]"
+                >
+                  Login
+                  <span
+                    class="flex rounded-full bg-transparent text-white w-10 h-10 justify-center items-center m-1"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="3.5"
+                      stroke="currentColor"
+                      class="w-6 h-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="flex items-end mt-3 md:mt-0">
+              <div class="flex flex-row gap-2 justify-center w-full md:w-auto">
+                <a href="https://t.me/Xedmex_official" target="_blank">
+                  <img
+                    src="/assets/img/front/trade-anytime/telegram.png"
+                    class="h-8 md:h-10"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/xedmex/"
+                  target="_blank"
+                >
+                  <img
+                    src="/assets/img/front/trade-anytime/linkedin.png"
+                    class="h-8 md:h-10"
+                  />
+                </a>
+                <a href="https://medium.com/@xedmex" target="_blank">
+                  <img
+                    src="/assets/img/front/trade-anytime/medium.png"
+                    class="h-8 md:h-10"
+                  />
+                </a>
+                <a href="https://x.com/xedmex" target="_blank">
+                  <img
+                    src="/assets/img/front/trade-anytime/x.png"
+                    class="h-8 md:h-10"
+                  />
+                </a>
+                <a href="https://discord.gg/aby26e5des" target="_blank">
+                  <img
+                    src="/assets/img/front/trade-anytime/discord.png"
+                    class="h-8 md:h-10"
+                  />
+                </a>
+                <a
+                  href="https://www.youtube.com/@Xedmex-AI-Trader"
+                  target="_blank"
+                >
+                  <img
+                    src="/assets/img/front/trade-anytime/youtube.png"
+                    class="h-8 md:h-10"
+                  />
+                </a>
+                <a href="https://xedmex-ai.gitbook.io/" target="_blank">
+                  <img
+                    src="/assets/img/front/trade-anytime/gitbook.png"
+                    class="h-8 md:h-10"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="px-3 py-3 md:py-8 w-full lg:max-w-7xl mx-auto flex flex-col items-center relative text-white"
+      >
+        <div class="front-separator mb-4 lg:mb-8 md:w-3/4"></div>
+        <div
+          class="flex flex-row flex-wrap justify-center gap-3 lg:gap-6 text-sm md:text-base"
+        >
+          <a href="/" class="hover:underline">Home</a>
+          <a href="/#about" class="hover:underline">About</a>
+          <a href="/#how-it-works" class="hover:underline">How it works?</a>
+          <a
+            href="https://xedmex-ai.gitbook.io/"
+            target="_blank"
+            class="hover:underline"
+            >Gitbook</a
+          >
+          <a
+            href="/files/xedmex-whitepaper.pdf"
+            class="hover:underline"
+            download
+            >White Paper</a
+          >
+          <a href="/#app" class="hover:underline">Apps</a>
+          <a href="/news" class="hover:underline">News</a>
+          <a href="/support" target="_blank" class="hover:underline">Contact</a>
+          <button
+            class="hover:text-[#038DFD]"
+            x-on:click="$dispatch('open-modal', 'change-lang')"
+          >
+            <span class="icon-globe-1"></span>
+          </button>
+        </div>
+        <div class="py-3 lg:py-8 flex justify-center">
+          <img src="/assets/img/logo.png" class="h-12" />
+        </div>
+        <p class="text-xs text-center">
+          Before using our trading services, please consult with a qualified and
+          licensed financial advisor to assess your risk tolerance, relevant
+          experience, and knowledge. Xedmex offers automated trading services on
+          the New York Stock Exchange (NYSE) through advanced trading bots. When
+          engaging with our Trading Service, it's important to note that you
+          won't have the same regulatory protections as clients receiving
+          services under regulated investment frameworks. Trading with Xedmex
+          involves a high level of risk. Our trading bots execute trades on your
+          behalf, but you should be aware that past performance is not
+          indicative of future results. We employ advanced algorithms to provide
+          efficient and effective trading strategies on NYSE, but market
+          conditions can change, and losses are possible. Xedmex is committed to
+          providing a seamless and professional trading experience on NYSE
+          through our automated trading bots. The content on our platform is
+          generated by our expert team and trading algorithms. Please remember
+          that all trading involves risk, and you should only invest funds that
+          you can afford to lose.
+        </p>
+        <p class="text-sm text-center mt-3 lg:mt-6">
+          Copyright © 2023 Xedmex AI Trader - Your Automated Trading Partner.
+          All rights reserved. By registering on the website, you accept its
+          <a href="/terms" class="underline">Terms & Conditions</a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
